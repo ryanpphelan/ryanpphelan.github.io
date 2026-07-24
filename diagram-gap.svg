@@ -1,0 +1,22 @@
+<svg viewBox="0 0 820 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A measured distance between two points: on the left, how you see your company; on the right, how the market experiences it. The space between them is labeled the Clarity Gap.">
+<defs>
+<marker id="gl" markerWidth="9" markerHeight="9" refX="6" refY="4" orient="auto"><path d="M7,1 L1,4 L7,7" fill="none" stroke="#7A1F2B" stroke-width="1.4"/></marker>
+<marker id="gr" markerWidth="9" markerHeight="9" refX="3" refY="4" orient="auto"><path d="M1,1 L7,4 L1,7" fill="none" stroke="#7A1F2B" stroke-width="1.4"/></marker>
+</defs>
+<!-- endpoints -->
+<circle cx="170" cy="120" r="7" fill="#191817"/>
+<circle cx="650" cy="120" r="7" fill="#fff" stroke="#7A1F2B" stroke-width="2"/>
+<!-- ticks -->
+<line x1="170" y1="94" x2="170" y2="146" stroke="#D9D2C6" stroke-width="1"/>
+<line x1="650" y1="94" x2="650" y2="146" stroke="#D9D2C6" stroke-width="1"/>
+<!-- measure line -->
+<line x1="184" y1="120" x2="636" y2="120" stroke="#7A1F2B" stroke-width="1.4" marker-start="url(#gl)" marker-end="url(#gr)"/>
+<!-- center label -->
+<rect x="335" y="104" width="150" height="32" rx="4" fill="#FBFAF8"/>
+<text x="410" y="125" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" letter-spacing="2" font-weight="600" fill="#7A1F2B">THE CLARITY GAP</text>
+<!-- endpoint labels -->
+<text x="170" y="80" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="14" fill="#191817">How you see it</text>
+<text x="650" y="80" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="14" fill="#191817">How the market sees it</text>
+<text x="170" y="172" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#6E6A64">the company you built</text>
+<text x="650" y="172" text-anchor="middle" font-family="Inter,sans-serif" font-size="11.5" fill="#6E6A64">the company they meet</text>
+</svg>
