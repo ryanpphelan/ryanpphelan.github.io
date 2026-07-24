@@ -1,4 +1,4 @@
-# Ryan Phelan — welcome search and AI answer engines
+# Ryan Phelan: welcome search and AI answer engines
 User-agent: *
 Allow: /
 
