@@ -58,9 +58,10 @@
 <main>
   <section class="hero">
     <div class="wrap narrow">
-      <!-- Headshot: drop a square photo named headshot.jpg in this folder and replace the div below with:
-           <img class="headshot" src="headshot.jpg" alt="Ryan Phelan"> -->
-      <div class="headshot headshot-ph">Headshot<br>goes here</div>
+      <!-- Headshot is wired in. Drop a square photo named headshot.jpg into this folder and it appears.
+           If the file is missing, the placeholder shows instead of a broken image. -->
+      <img class="headshot" src="headshot.jpg" alt="Ryan Phelan" onerror="this.style.display='none';document.getElementById('hs-ph').style.display='flex'">
+      <div id="hs-ph" class="headshot headshot-ph" style="display:none">Headshot<br>goes here</div>
       <p class="eyebrow">About</p>
       <h1>After thirty years, I’ve learned the answer is usually already in the room. Someone just has to help everyone see it.</h1>
     </div>
