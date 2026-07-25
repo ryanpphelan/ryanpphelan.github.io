@@ -1,4 +1,4 @@
-/* Ryan Phelan — The Strongbow Group
+/* Ryan Phelan - The Strongbow Group
    Design system: quiet confidence. Editorial serif + clean sans, warm paper, single bordeaux accent. */
 
 :root{
@@ -229,3 +229,32 @@ figure.diagram figcaption{margin-top:14px;color:var(--muted);font-size:.9rem;tex
 /* short bio block */
 .bio{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:26px 28px;margin-top:24px;font-size:.98rem;color:var(--ink-soft)}
 .bio b{color:var(--ink)}
+
+/* ---------- consent banner ---------- */
+.cc-banner{
+  position:fixed;left:0;right:0;bottom:0;z-index:200;
+  background:var(--bg);border-top:1px solid var(--line);
+  box-shadow:0 -12px 32px rgba(25,24,23,.10);
+  transform:translateY(110%);transition:transform .35s ease;
+}
+.cc-banner.show{transform:translateY(0)}
+.cc-inner{
+  max-width:var(--wrap);margin:0 auto;padding:16px 28px;
+  display:flex;align-items:center;gap:22px;flex-wrap:wrap;justify-content:space-between;
+}
+.cc-text{margin:0;font-size:.9rem;line-height:1.55;color:var(--ink-soft);max-width:660px}
+.cc-actions{display:flex;gap:10px;flex-shrink:0}
+.cc-btn{
+  font-family:var(--sans);font-size:.9rem;font-weight:500;
+  padding:10px 22px;border-radius:8px;cursor:pointer;
+  border:1px solid var(--accent);transition:background .15s,color .15s,border-color .15s;
+}
+.cc-accept{background:var(--accent);color:#fff}
+.cc-accept:hover{background:var(--accent-deep);border-color:var(--accent-deep)}
+.cc-decline{background:transparent;color:var(--accent)}
+.cc-decline:hover{background:var(--panel)}
+@media(max-width:640px){
+  .cc-inner{flex-direction:column;align-items:stretch;gap:14px;padding:16px 20px}
+  .cc-actions{width:100%}
+  .cc-btn{flex:1}
+}

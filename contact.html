@@ -3,6 +3,33 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Consent Mode v2 default (denied) + GA4. Consent stays denied until the banner is answered. -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent','default',{
+    ad_storage:'denied',
+    ad_user_data:'denied',
+    ad_personalization:'denied',
+    analytics_storage:'denied',
+    functionality_storage:'denied',
+    personalization_storage:'denied',
+    security_storage:'granted',
+    wait_for_update:500
+  });
+  try{
+    var _sg=JSON.parse(localStorage.getItem('sg_consent'));
+    if(_sg&&_sg.state){gtag('consent','update',_sg.state);}
+  }catch(e){}
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6TS21KV3RW"></script>
+<script>
+  gtag('js', new Date());
+  gtag('config', 'G-6TS21KV3RW');
+</script>
+<!-- When you add GTM later: paste the GTM container snippet directly BELOW this line
+     (after the consent default above), and move the GA4 config into the container. -->
 <title>Contact, Ryan Phelan</title>
 <meta name="description" content="Start with a conversation, not a proposal. Schedule time with Ryan Phelan.">
 <link rel="canonical" href="https://ryanphelan.com/contact.html">
