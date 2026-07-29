@@ -1,0 +1,38 @@
+<svg viewBox="0 0 840 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="What the Clarity Sprint delivers: a diagnosis of the three findings that matter most, a Growth Opportunity Map that sequences the moves in order, and a 30/60/90-day roadmap where every item carries an owner, a metric, and a decision date.">
+<defs>
+<marker id="spd" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="none" stroke="#7A1F2B" stroke-width="1.3"/></marker>
+</defs>
+<text x="420" y="20" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" letter-spacing="1.6" fill="#7A1F2B" font-weight="600">WHAT THE SPRINT DELIVERS</text>
+
+<!-- Card 1: Diagnosis -->
+<rect x="24" y="44" width="240" height="150" rx="8" fill="#fff" stroke="#D9D2C6"/>
+<text x="44" y="78" font-family="Fraunces,Georgia,serif" font-size="16" fill="#191817">The diagnosis</text>
+<text x="44" y="98" font-family="Inter,sans-serif" font-size="10.5" fill="#6E6A64">The three findings that matter most</text>
+<circle cx="48" cy="126" r="3.5" fill="#7A1F2B"/><rect x="60" y="122.5" width="176" height="7" rx="3.5" fill="#F2EEE7"/>
+<circle cx="48" cy="150" r="3.5" fill="#7A1F2B"/><rect x="60" y="146.5" width="150" height="7" rx="3.5" fill="#F2EEE7"/>
+<circle cx="48" cy="174" r="3.5" fill="#7A1F2B"/><rect x="60" y="170.5" width="164" height="7" rx="3.5" fill="#F2EEE7"/>
+
+<line x1="270" y1="119" x2="294" y2="119" stroke="#7A1F2B" stroke-width="1.5" marker-end="url(#spd)"/>
+
+<!-- Card 2: Growth Opportunity Map -->
+<rect x="300" y="44" width="240" height="150" rx="8" fill="#fff" stroke="#D9D2C6"/>
+<text x="320" y="78" font-family="Fraunces,Georgia,serif" font-size="15" fill="#191817">Growth Opportunity Map</text>
+<text x="320" y="98" font-family="Inter,sans-serif" font-size="10.5" fill="#6E6A64">The moves that matter, in order</text>
+<text x="322" y="130" font-family="Inter,sans-serif" font-size="10" fill="#7A1F2B" font-weight="600">1</text><rect x="338" y="122.5" width="184" height="9" rx="3" fill="#7A1F2B" opacity="0.9"/>
+<text x="322" y="153" font-family="Inter,sans-serif" font-size="10" fill="#7A1F2B" font-weight="600">2</text><rect x="338" y="145.5" width="152" height="9" rx="3" fill="#7A1F2B" opacity="0.62"/>
+<text x="322" y="176" font-family="Inter,sans-serif" font-size="10" fill="#7A1F2B" font-weight="600">3</text><rect x="338" y="168.5" width="120" height="9" rx="3" fill="#7A1F2B" opacity="0.4"/>
+
+<line x1="546" y1="119" x2="570" y2="119" stroke="#7A1F2B" stroke-width="1.5" marker-end="url(#spd)"/>
+
+<!-- Card 3: 30/60/90 Roadmap -->
+<rect x="576" y="44" width="240" height="150" rx="8" fill="#fff" stroke="#D9D2C6"/>
+<text x="596" y="78" font-family="Fraunces,Georgia,serif" font-size="16" fill="#191817">30/60/90 roadmap</text>
+<text x="596" y="98" font-family="Inter,sans-serif" font-size="10.5" fill="#6E6A64">Every item owned, measured, dated</text>
+<line x1="612" y1="140" x2="792" y2="140" stroke="#D9D2C6" stroke-width="1.5"/>
+<circle cx="616" cy="140" r="5" fill="#7A1F2B"/><text x="616" y="162" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#191817">30</text>
+<circle cx="702" cy="140" r="5" fill="#7A1F2B"/><text x="702" y="162" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#191817">60</text>
+<circle cx="788" cy="140" r="5" fill="#7A1F2B"/><text x="788" y="162" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="#191817">90</text>
+<text x="702" y="182" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" fill="#6E6A64">owner &#183; metric &#183; decision date</text>
+
+<text x="420" y="228" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="13" font-style="italic" fill="#191817">You leave with a plan your team can act on, not a report you file.</text>
+</svg>

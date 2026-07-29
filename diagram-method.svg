@@ -1,0 +1,35 @@
+<svg viewBox="0 0 840 172" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The six-part Alignment method, run in order: Market Definition, Market Need, Brand Definition, Strategic Positioning, Organizational Alignment, and Market Execution.">
+<defs>
+<marker id="mtd" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="none" stroke="#7A1F2B" stroke-width="1.3"/></marker>
+</defs>
+<text x="420" y="22" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" letter-spacing="1.6" fill="#7A1F2B" font-weight="600">THE SIX-PART METHOD</text>
+
+<!-- connecting arrows -->
+<line x1="89" y1="66" x2="191" y2="66" stroke="#7A1F2B" stroke-width="1.3" marker-end="url(#mtd)"/>
+<line x1="229" y1="66" x2="331" y2="66" stroke="#7A1F2B" stroke-width="1.3" marker-end="url(#mtd)"/>
+<line x1="369" y1="66" x2="471" y2="66" stroke="#7A1F2B" stroke-width="1.3" marker-end="url(#mtd)"/>
+<line x1="509" y1="66" x2="611" y2="66" stroke="#7A1F2B" stroke-width="1.3" marker-end="url(#mtd)"/>
+<line x1="649" y1="66" x2="751" y2="66" stroke="#7A1F2B" stroke-width="1.3" marker-end="url(#mtd)"/>
+
+<!-- nodes -->
+<g font-family="Fraunces,Georgia,serif" font-size="13" fill="#7A1F2B">
+<circle cx="70" cy="66" r="15" fill="#fff" stroke="#7A1F2B" stroke-width="1.5"/><text x="70" y="71" text-anchor="middle">1</text>
+<circle cx="210" cy="66" r="15" fill="#fff" stroke="#7A1F2B" stroke-width="1.5"/><text x="210" y="71" text-anchor="middle">2</text>
+<circle cx="350" cy="66" r="15" fill="#fff" stroke="#7A1F2B" stroke-width="1.5"/><text x="350" y="71" text-anchor="middle">3</text>
+<circle cx="490" cy="66" r="15" fill="#fff" stroke="#7A1F2B" stroke-width="1.5"/><text x="490" y="71" text-anchor="middle">4</text>
+<circle cx="630" cy="66" r="15" fill="#fff" stroke="#7A1F2B" stroke-width="1.5"/><text x="630" y="71" text-anchor="middle">5</text>
+<circle cx="770" cy="66" r="15" fill="#fff" stroke="#7A1F2B" stroke-width="1.5"/><text x="770" y="71" text-anchor="middle">6</text>
+</g>
+
+<!-- labels -->
+<g font-family="Inter,sans-serif" font-size="10.5" fill="#191817" text-anchor="middle">
+<text x="70" y="102">Market</text><text x="70" y="116">Definition</text>
+<text x="210" y="102">Market</text><text x="210" y="116">Need</text>
+<text x="350" y="102">Brand</text><text x="350" y="116">Definition</text>
+<text x="490" y="102">Strategic</text><text x="490" y="116">Positioning</text>
+<text x="630" y="102">Organizational</text><text x="630" y="116">Alignment</text>
+<text x="770" y="102">Market</text><text x="770" y="116">Execution</text>
+</g>
+
+<text x="420" y="154" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="13" font-style="italic" fill="#191817">One disciplined progression, run the same way every time.</text>
+</svg>

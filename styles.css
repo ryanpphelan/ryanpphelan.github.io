@@ -279,3 +279,6 @@ figure.diagram figcaption{margin-top:14px;color:var(--muted);font-size:.9rem;tex
 .case p{margin:0;color:var(--ink-soft);font-size:.97rem;line-height:1.62}
 .case-tag{font-family:var(--sans);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:12px !important}
 @media(max-width:760px){ .cases{grid-template-columns:1fr} }
+
+/* ---------- footer photo ---------- */
+.fcircle{width:54px;height:54px;border-radius:50%;object-fit:cover;display:block;margin-bottom:12px;border:1px solid var(--line)}
