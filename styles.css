@@ -282,3 +282,9 @@ figure.diagram figcaption{margin-top:14px;color:var(--muted);font-size:.9rem;tex
 
 /* ---------- footer photo ---------- */
 .fcircle{width:54px;height:54px;border-radius:50%;object-fit:cover;display:block;margin-bottom:12px;border:1px solid var(--line)}
+
+/* tighten spacing where panel-background sections stack (services page) */
+.pathway-band{padding-bottom:44px}
+.pathway-band + .section-panel{padding-top:0}
+.section-panel:has(+ .section-panel){padding-bottom:44px}
+.section-panel + .section-panel{padding-top:0}
