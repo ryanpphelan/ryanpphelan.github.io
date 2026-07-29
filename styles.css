@@ -258,3 +258,24 @@ figure.diagram figcaption{margin-top:14px;color:var(--muted);font-size:.9rem;tex
   .cc-actions{width:100%}
   .cc-btn{flex:1}
 }
+
+/* ---------- service pathway ---------- */
+.pathway-band{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.pathway{display:flex;align-items:stretch;gap:14px;margin-top:18px;flex-wrap:wrap}
+.pstep{flex:1;min-width:200px;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:20px 22px;display:flex;flex-direction:column;gap:6px}
+.pstep .pnum{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;font-family:var(--sans);font-size:.85rem;font-weight:600}
+.pstep b{font-family:var(--serif);font-size:1.12rem;color:var(--ink);margin-top:4px}
+.pstep span:last-child{color:var(--ink-soft);font-size:.92rem;line-height:1.5}
+.parrow{display:flex;align-items:center;color:var(--accent);font-size:1.4rem;font-weight:600}
+.pathway-note{margin-top:16px;color:var(--muted);font-size:.9rem;font-style:italic}
+@media(max-width:720px){
+  .pathway{flex-direction:column}
+  .parrow{justify-content:center;transform:rotate(90deg)}
+}
+
+/* ---------- case studies ---------- */
+.cases{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:22px}
+.case{background:var(--bg);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:12px;padding:26px 28px}
+.case p{margin:0;color:var(--ink-soft);font-size:.97rem;line-height:1.62}
+.case-tag{font-family:var(--sans);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:12px !important}
+@media(max-width:760px){ .cases{grid-template-columns:1fr} }
