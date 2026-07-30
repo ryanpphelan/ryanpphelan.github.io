@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Consent Mode v2 default (denied) + GA4. Consent stays denied until the banner is answered. -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent','default',{
+    ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',
+    analytics_storage:'denied',functionality_storage:'denied',personalization_storage:'denied',
+    security_storage:'granted',wait_for_update:500
+  });
+  try{var _sg=JSON.parse(localStorage.getItem('sg_consent'));if(_sg&&_sg.state){gtag('consent','update',_sg.state);}}catch(e){}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6TS21KV3RW"></script>
+<script>gtag('js', new Date());gtag('config', 'G-6TS21KV3RW');</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T6S4WWPX');</script>
+<title>3 ways to reduce bias in AI with better context | Ryan Phelan</title>
+<meta name="description" content="AI bias often starts before the model runs. Missing context and loaded prompts distort the output. Give the model what only you know.">
+<link rel="canonical" href="https://martech.org/3-ways-to-reduce-bias-in-ai-with-better-context/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Ryan Phelan &middot; The Strongbow Group">
+<meta property="og:title" content="3 ways to reduce bias in AI with better context | Ryan Phelan">
+<meta property="og:description" content="AI bias often starts before the model runs. Missing context and loaded prompts distort the output. Give the model what only you know.">
+<meta property="og:url" content="https://martech.org/3-ways-to-reduce-bias-in-ai-with-better-context/">
+<meta property="og:image" content="https://ryanphelan.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="3 ways to reduce bias in AI with better context | Ryan Phelan">
+<meta name="twitter:description" content="AI bias often starts before the model runs. Missing context and loaded prompts distort the output. Give the model what only you know.">
+<meta name="twitter:image" content="https://ryanphelan.com/og-image.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "3 ways to reduce bias in AI with better context",
+  "author": {
+    "@type": "Person",
+    "name": "Ryan Phelan",
+    "url": "https://ryanphelan.com/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "The Strongbow Group",
+    "url": "https://ryanphelan.com/"
+  },
+  "datePublished": "2026-03-18",
+  "mainEntityOfPage": "https://ryanphelan.com/articles/3-ways-to-reduce-bias-in-ai-with-better-context.html",
+  "url": "https://ryanphelan.com/articles/3-ways-to-reduce-bias-in-ai-with-better-context.html",
+  "isBasedOn": "https://martech.org/3-ways-to-reduce-bias-in-ai-with-better-context/"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<style>
+.art{padding:64px 0 8px}
+.art-meta{color:var(--muted);font-size:.95rem;margin:-8px 0 20px}
+.art-body h2{font-size:1.7rem;margin:42px 0 14px}
+.art-body h3{font-size:1.24rem;margin:30px 0 8px}
+.art-body p{margin:0 0 18px}
+.art-body blockquote{margin:22px 0;padding:4px 0 4px 22px;border-left:3px solid var(--accent);color:var(--ink-soft);font-style:italic}
+.art-body ul{margin:0 0 20px;padding-left:0;list-style:none}
+.art-body ul li{position:relative;padding:0 0 0 26px;margin:0 0 10px;color:var(--ink-soft)}
+.art-body ul li::before{content:"";position:absolute;left:2px;top:13px;width:10px;height:1px;background:var(--accent)}
+.martech-credit{margin:44px 0 0;padding:22px 24px;background:var(--panel);border:1px solid var(--line);border-radius:10px;color:var(--ink-soft);font-size:.95rem;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.martech-credit .ml-logo{height:22px;width:auto;display:block}
+.martech-credit .ml-read{white-space:nowrap}
+.writing-list{margin-top:12px}
+.witem{padding:24px 0;border-bottom:1px solid var(--line)}
+.witem:first-child{border-top:1px solid var(--line)}
+.witem h3{margin:0 0 6px;font-size:1.28rem}
+.witem h3 a{color:var(--ink)} .witem h3 a:hover{color:var(--accent)}
+.witem .wmeta{color:var(--muted);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;margin-bottom:8px}
+.witem p{margin:0;color:var(--ink-soft);font-size:.98rem}
+.feature{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:12px;padding:30px 32px;margin-top:6px}
+.feature .eyebrow{margin-bottom:10px}
+.feature h3{font-size:1.7rem;margin:0 0 8px}
+.feature h3 a{color:var(--ink)} .feature h3 a:hover{color:var(--accent)}
+.feature p{margin:0;color:var(--ink-soft)}
+</style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T6S4WWPX" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
+<header class="site-header">
+  <div class="wrap nav">
+    <a href="../index.html" class="brand">Ryan Phelan</a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="../approach.html">The Approach</a></li>
+      <li><a href="../services.html">Ways to Work</a></li>
+      <li><a href="../about.html">About</a></li>
+      <li><a href="../writing.html" aria-current="page">Writing</a></li>
+      <li><a href="../contact.html" class="btn nav-cta">Schedule a Conversation</a></li>
+    </ul>
+  </div>
+</header>
+<main>
+  <article class="art"><div class="wrap"><div class="narrow" style="margin:0 auto">
+    <p class="eyebrow">Writing &middot; From the MarTech column</p>
+    <h1>3 ways to reduce bias in AI with better context</h1>
+    <p class="art-meta">Ryan Phelan &nbsp;&middot;&nbsp; Originally published on MarTech, March 18, 2026</p>
+    <hr class="rule">
+    <div class="art-body">
+<p>Among all the concerns marketers have when bringing AI into
+decision-making, there’s one we don’t talk about enough: Are we too
+quick to assume AI knows what’s going on in our heads when we build
+models?</p>
+<p>This stems from a growing worry about introducing bias when building
+prompts and formatting queries. The bias can stem from not providing
+context and nuance, the knowledge that lives in our heads, which we call
+on when we make decisions on our own but forget to consider when working
+with AI.</p>
+<h2 id="why-is-context-essential">Why is context essential?</h2>
+<p>I could just assume that you know what context is and why we need to
+provide it as we build our queries. But then you might miss the reasons
+why I think it’s so important. My points won’t make the same impact, and
+your understanding could be colored or distorted.</p>
+<p>The same thing can happen if we trust too much in AI’s ability to
+think.</p>
+<p>Context is what we give to our AI model to help it sort, analyze and
+report results and insights accurately. It’s like adding conditions when
+you’re building an automated email workflow.</p>
+<p>This goes beyond the basic questions about which model to use and
+what to use it for. We have to remember that we have an incredibly
+powerful tool, but it’s not foolproof. We have to think through how
+we’re using it and what information we need to provide to get accurate
+and useful insights and analysis.</p>
+<p>I get it. We engage AI and assume it knows everything, or that our
+context doesn’t matter. But this overlooks my key point. AI does know a
+lot, but only you know the context in which you’re asking questions.</p>
+<p>In short, AI can’t read our minds. All too often, we build queries
+that assume it does. That colors the answers AI gives us.</p>
+<h2 id="ways-to-guard-against-bias-when-using-ai">3 ways to guard
+against bias when using AI</h2>
+<p>Here are three practices to follow for the most valuable results from
+your AI queries.</p>
+<h3 id="provide-context-and-nuance">1. Provide context and nuance</h3>
+<p>I talked with executives at a company who were dealing with a
+situation in which a senior executive commandeered the AI model,
+improperly uploaded sensitive company operating information in raw form
+and asked the model to interpret it.</p>
+<p>Aside from not verifying that the data wouldn’t be shared beyond the
+company, this exec failed in two other key ways:</p>
+<ul>
+<li>By providing only raw data, he gave the AI model no context to
+consider when analyzing the information and formulating its
+responses.</li>
+<li>He wrote the prompts to imply he wanted a negative outcome or to
+confirm his bias.</li>
+</ul>
+<p>The AI model’s training caused it to pick up on that implied
+negativity. Without context, the AI model couldn’t think beyond the
+negativity embedded in the prompts.</p>
+<p>The resulting recommendations, surprise, were negative and
+inaccurate. Had the company made decisions based on that biased output,
+it would have gone down a disastrously wrong path.</p>
+<p>We assume the machine will pick up on nuances in word choice or vocal
+tone the way a human would. Or we expect it to use reasoning based on
+earlier experiences that aren’t part of its data memory.</p>
+<p>I see marketers making this mistake as they explore using AI in their
+marketing programs. They’re treating AI as a tactic rather than as part
+of a strategy.</p>
+<p>As with everything in marketing (and life, if you think about it),
+strategy has to come before tactics. You develop the strategy first (the
+approach) and then the strategy guides your tactical decisions. AI is,
+above all else, a tactic, a tool to help you carry out your strategy to
+achieve your goal.</p>
+<p>As part of developing that strategy, we now have to define how to
+avoid bias and how to recognize it in the development and outputs. We
+also need to know the context we need to provide to build a reliable
+model.</p>
+<p>That has to be first. You can’t do it on the fly. Missing that step
+means that all of the information you put in will be incomplete and your
+analysis will be flawed.</p>
+<h3
+id="provide-enough-information-to-help-your-ai-model-make-the-best-decisions">2.
+Provide enough information to help your AI model make the best
+decisions</h3>
+<p>How do you avoid flawed outputs? One way is to do what I did when
+training one of my AI models on a business. I uploaded around 47
+different files, contracts, PowerPoints, articles and myriad other
+information sources, which gave the model a well-rounded context for the
+subject that I was researching.</p>
+<p>Then I did one thing that AI experts don’t discuss much. I asked the
+model, “What do you need to know? What information are you missing?”
+This helps the model close the gap and avoid making decisions without
+crucial information, like context.</p>
+<p>We hear every day about companies that are replacing employees with
+AI. The latest is Block, the company behind Square, Cash App and
+Afterpay. CEO Jack Dorsey said the smaller workforce would “move faster
+with smaller, highly talented teams using AI to automate more work.”</p>
+<p>Great. But human employees provide the context AI models need to
+deliver better results. An AI model has only the context we give it. We
+must recognize that bias will harm our companies if we don’t take it
+seriously in that step.</p>
+<p>Here’s another example. Doing analysis is an excellent use for AI. It
+can fast-track insights you can highlight to examine growth, losses or
+opportunities you might not discover any other way.</p>
+<p>If I upload my email send data and ask my AI model to analyze it and
+suggest alternate schedules for sending email campaigns, I need to
+explain that we send emails on Wednesdays and Fridays because that’s
+when we have updated inventory numbers.</p>
+<p>We believe our subscribers open our emails most on Saturday mornings.
+If you don’t add that context, you’re shorting the analysis.</p>
+<p>You need to add that step to your AI analysis strategy. It’s where
+you say, “Here’s what I know and what powers my decisions.”</p>
+<p>This step is what I call memorializing. You catalog everything you
+know about how you make decisions in your job, so that when you leave
+it, the next person to sit in your chair has a well-rounded base of
+information.</p>
+<p>You might hesitate to do that because it means giving up your secret
+sauce, the context and value you bring to your job. But you have to give
+it up. Your AI model needs all that information to make a decision that
+aligns with what you know.</p>
+<p>That’s not all. You must constantly seek out holes in the
+interpretation. Don’t gloss over a questionable comment or finding.
+Don’t assume your model knows what you know. Don’t assume you can fix
+the problem later.</p>
+<p>There’s a science to this. Our executives need to ensure we’re
+addressing that.</p>
+<h3 id="use-incremental-innovation-to-uncover-bias-and-add-context">3.
+Use incremental innovation to uncover bias and add context</h3>
+<p>Great leaps forward capture attention and snag speaking engagements
+at business conferences, but they seldom lead to sustainable and
+manageable change.</p>
+<p>AI feeds into the appetite for instant improvement. AI tech vendors
+are selling the C-suite the dream of monumental, company-changing
+advances. The C-level thinks that’s great. Shareholders will love it.
+The board of directors will rave.</p>
+<p>But can the director, senior director, manager, vice president or
+senior vice president make it work?</p>
+<p>Incremental innovation is a more workable alternative. It takes small
+steps to build up to something great. You make one change, study the
+effect, then build on what you learn to take the next one. Each step is
+a proof point that can reveal a gap or weakness. In AI terms, that means
+revealing where a biased or noncontextual query could lead you
+astray.</p>
+<p>Yes, it can take longer to achieve than wholesale change. These days,
+we often don’t get the time we need to make those informed, sustainable
+changes. But it can produce better results over the long haul.</p>
+<p>You learn all the nuances of context. You can put two people on the
+same project, working on the same base of information and see whether
+the output is the same.</p>
+<p>This doesn’t mean that grandiose moves aren’t worthwhile. But at this
+stage, you have to ask some tough questions:</p>
+<ul>
+<li>Are these changes realistic?</li>
+<li>Do we have guardrails set up?</li>
+<li>Have we learned the guardrails?</li>
+<li>How do we make sure we don’t get into trouble?</li>
+</ul>
+<p>A marketer told me recently, “When AI starts to publish ads and
+emails, some companies will make mistakes. They’re going to be very
+public, very loud and very egregious. Because someone somewhere will
+trust the machine to make all the decisions and that will be the wrong
+move. Those decisions won’t be well-informed because they lack context,
+and they are biased. Because it’s hard to prove at scale.”</p>
+<h2 id="ai-outputs-are-only-as-good-as-your-inputs">AI outputs are only
+as good as your inputs</h2>
+<p>AI is a powerful tool. Technology is moving faster every day and we
+can’t slow it down long enough to set up guardrails and rules.</p>
+<p>But as responsible marketers, we have to do it. Nobody wants to be
+the person who pushes a button and sends out a campaign that was
+fundamentally flawed because we didn’t consider bias or context.</p>
+<p>This doesn’t mean we should stop using AI (big no). Every marketer
+should use AI in the ways that best serve their programs. But we have to
+be thoughtful and responsible in how we use and manage our
+approaches.</p>
+<p>Just remember this: AI can’t crawl inside your brain and learn how
+long you’ve been at that company, the conversations you have with
+coworkers, your preferences and the company rules. Take the time to
+ensure you’re accounting for bias and context as you develop your
+strategy.</p>
+
+    </div>
+    <div class="martech-credit">
+      <span>Previously published on</span>
+      <a href="https://martech.org/3-ways-to-reduce-bias-in-ai-with-better-context/" target="_blank" rel="noopener" aria-label="MarTech"><img class="ml-logo" src="images/martech-logo.png" alt="MarTech"></a>
+      <a class="ml-read" href="https://martech.org/3-ways-to-reduce-bias-in-ai-with-better-context/" target="_blank" rel="noopener">Read the original &rarr;</a>
+    </div>
+  </div></div></article>
+  <section class="section-panel cta-band">
+  <div class="wrap">
+    <p class="eyebrow">Start a conversation</p>
+    <h2>Not sure which side your Clarity Gap is on?</h2>
+    <p class="lead" style="max-width:640px;margin:0 auto 26px">A 30-day outside read tells you where the gap is, inside, outside, or both, and the moves that close it.</p>
+    <a href="../contact.html" class="btn btn-lg">Schedule a Conversation</a>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <img class="fcircle" src="../headshot.jpg" alt="Ryan Phelan" onerror="this.style.display='none'">
+      <div class="fbrand">Ryan Phelan</div>
+      <div style="color:#8A857D;font-size:.9rem;margin-top:6px">Go-to-Market Alignment &amp; Translation for B2B technology leaders.</div>
+    </div>
+    <div class="flinks">
+      <a href="../approach.html">The Approach</a>
+      <a href="../services.html">Ways to Work</a>
+      <a href="../about.html">About</a>
+      <a href="../writing.html">Writing</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+    <div class="fnote">&copy; 2026 The Strongbow Group LLC &nbsp;&middot;&nbsp; ryanphelan.com &nbsp;&middot;&nbsp; <a href="mailto:ryanp@ryanphelan.com">ryanp@ryanphelan.com</a></div>
+  </div>
+</footer>
+<script src="../script.js"></script>
+</body>
+</html>

@@ -14,7 +14,19 @@ Ryan has nearly three decades across every side of B2B technology: vendor, clien
 - [Contact](https://ryanphelan.com/contact.html): start with a conversation, not a proposal
 
 ## Writing
-- [Ryan Phelan on MarTech](https://martech.org/author/ryan-phelan/): columns on email, lifecycle, and go-to-market
+- [Writing](https://ryanphelan.com/writing.html): selected essays and columns, gathered on-site
+- [The Clarity Gap](https://ryanphelan.com/articles/the-clarity-gap.html): the essay defining the Clarity Gap, its two faces, and what it takes to close it
+- [Why you should always ask why](https://ryanphelan.com/articles/why-you-should-always-ask-why.html): strategy must lead tactics; the why comes before the how
+- [Is your marketing department the 'useful idiot'?](https://ryanphelan.com/articles/is-your-marketing-department-the-useful-idiot.html): data literacy as a leadership duty
+- [Marketing is more than KPIs, it's service](https://ryanphelan.com/articles/marketing-is-more-than-kpis-its-service.html): serve the customer first and the number follows
+- [A new KPI for marketers: Humanity](https://ryanphelan.com/articles/a-new-kpi-for-marketers-humanity.html): be human first, marketer second
+- [Your company may be slow with AI, but you can't afford to be](https://ryanphelan.com/articles/your-company-may-be-slow-with-ai.html): teach yourself AI now, be ready when the company moves
+- [3 ways to reduce bias in AI with better context](https://ryanphelan.com/articles/3-ways-to-reduce-bias-in-ai-with-better-context.html): context is the guardrail against biased output
+- [Don't be too quick to dismiss established best practices for email](https://ryanphelan.com/articles/dont-dismiss-established-best-practices-for-email.html): the best practice is your template
+- [Why marketing success requires failure](https://ryanphelan.com/articles/why-marketing-success-requires-failure.html): tests are designed to fail sometimes
+- [Email platform decisions require more than the latest innovation](https://ryanphelan.com/articles/email-platform-decisions.html): choose for the strategy, not the shiny feature
+- [We need more humanity in email, especially at unsubscribe](https://ryanphelan.com/articles/more-humanity-in-email-at-unsubscribe.html): even the goodbye is a brand moment
+- [Ryan Phelan on MarTech](https://martech.org/author/ryan-phelan/): the full archive of 100+ columns
 
 ## Contact
 - [Email](mailto:ryanp@ryanphelan.com): ryanp@ryanphelan.com
