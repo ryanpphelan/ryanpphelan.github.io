@@ -9,6 +9,7 @@
     'Your salespeople see',
     'Your board sees',
     'Your analysts see',
+    'Your exec team sees',
     'The market sees'
   ];
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
