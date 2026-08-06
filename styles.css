@@ -167,6 +167,7 @@ ul.ticks li::before{content:"";position:absolute;left:2px;top:12px;width:10px;he
   .two{grid-template-columns:1fr;gap:32px}
   section{padding:60px 0}
   .hero{padding:70px 0 56px}
+  .trust span{white-space:normal}
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -288,3 +289,8 @@ figure.diagram figcaption{margin-top:14px;color:var(--muted);font-size:.9rem;tex
 .pathway-band + .section-panel{padding-top:0}
 .section-panel:has(+ .section-panel){padding-bottom:44px}
 .section-panel + .section-panel{padding-top:0}
+
+/* keep the rotating headline from changing height (no push-down) on small screens */
+@media (max-width:600px){
+  .flip-line{display:flex;align-items:flex-end;min-height:2.3em}
+}
