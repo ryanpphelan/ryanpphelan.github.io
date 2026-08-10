@@ -15,6 +15,7 @@ Ryan has nearly three decades across every side of B2B technology: vendor, clien
 
 ## Writing
 - [Writing](https://ryanphelan.com/writing.html): selected essays and columns, gathered on-site
+- [When Alignment Becomes a Blindfold](https://ryanphelan.com/articles/when-alignment-becomes-a-blindfold.html): passing both halves of the clarity test can hide the most dangerous gap; agreement is not the same as being right
 - [The Clarity Gap](https://ryanphelan.com/articles/the-clarity-gap.html): the essay defining the Clarity Gap, its two faces, and what it takes to close it
 - [Why you should always ask why](https://ryanphelan.com/articles/why-you-should-always-ask-why.html): strategy must lead tactics; the why comes before the how
 - [Is your marketing department the 'useful idiot'?](https://ryanphelan.com/articles/is-your-marketing-department-the-useful-idiot.html): data literacy as a leadership duty
