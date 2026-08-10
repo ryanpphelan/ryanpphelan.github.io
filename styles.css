@@ -294,3 +294,9 @@ figure.diagram figcaption{margin-top:14px;color:var(--muted);font-size:.9rem;tex
 @media (max-width:600px){
   .flip-line{display:flex;align-items:flex-end;min-height:2.3em}
 }
+
+/* article share row */
+.art-share{display:flex;align-items:center;gap:13px;margin:40px 0 0;padding-top:24px;border-top:1px solid var(--line)}
+.art-share-label{font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--muted)}
+.art-share-btn{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid var(--line);border-radius:50%;color:var(--muted);transition:.2s}
+.art-share-btn:hover{color:#fff;background:var(--accent);border-color:var(--accent)}
