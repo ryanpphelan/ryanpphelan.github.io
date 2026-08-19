@@ -22,6 +22,7 @@ Ryan has nearly three decades across every side of B2B technology: vendor, clien
 - [Marketing is more than KPIs, it's service](https://ryanphelan.com/articles/marketing-is-more-than-kpis-its-service.html): serve the customer first and the number follows
 - [A new KPI for marketers: Humanity](https://ryanphelan.com/articles/a-new-kpi-for-marketers-humanity.html): be human first, marketer second
 - [Your company may be slow with AI, but you can't afford to be](https://ryanphelan.com/articles/your-company-may-be-slow-with-ai.html): teach yourself AI now, be ready when the company moves
+- [How to overcome the 3 barriers to AI adoption](https://ryanphelan.com/articles/3-barriers-to-ai-adoption.html): the barriers are scattered learning, unmanaged bias, and tactics before strategy; the hesitancy gap is a clarity gap
 - [3 ways to reduce bias in AI with better context](https://ryanphelan.com/articles/3-ways-to-reduce-bias-in-ai-with-better-context.html): context is the guardrail against biased output
 - [Don't be too quick to dismiss established best practices for email](https://ryanphelan.com/articles/dont-dismiss-established-best-practices-for-email.html): the best practice is your template
 - [Why marketing success requires failure](https://ryanphelan.com/articles/why-marketing-success-requires-failure.html): tests are designed to fail sometimes
