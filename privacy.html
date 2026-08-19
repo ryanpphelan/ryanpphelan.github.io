@@ -48,6 +48,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<style>
+.proc-table{width:100%;border-collapse:collapse;margin:16px 0 6px;font-size:.92rem}
+.proc-table th,.proc-table td{text-align:left;vertical-align:top;padding:10px 12px;border:1px solid var(--line)}
+.proc-table thead th{background:var(--panel);font-weight:600;color:var(--ink)}
+.proc-table td{color:var(--ink-soft)}
+@media(max-width:600px){.proc-table{font-size:.84rem}.proc-table th,.proc-table td{padding:8px 9px}}
+</style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -73,7 +80,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
     <div class="wrap narrow">
       <p class="eyebrow">Privacy</p>
       <h1>Privacy Policy</h1>
-      <p class="lead">How this site handles your information. Last updated August 5, 2026.</p>
+      <p class="lead">How this site handles your information. Last updated August 19, 2026.</p>
     </div>
   </section>
 
@@ -117,6 +124,31 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
 
       <h2>How long I keep it</h2>
       <p>I keep personal data only as long as I need it: scheduling and contact information for as long as I need to correspond with you and for a reasonable period afterward, analytics data according to Google Analytics’ retention settings, and visitor-identification data for as long as it is useful for business development or until you ask me to delete it.</p>
+
+      <h2>The Clarity Gap Diagnostic</h2>
+      <p>The diagnostic at clarity.ryanphelan.com collects more than the rest of this site, so it gets its own section. It runs on a subdomain of this site and is covered by this policy rather than a separate one.</p>
+      <p><strong style="color:var(--accent)">What you give me.</strong> Your company’s website address, so I know what to look at. Your name, work email address, job title, functional area, your relationship to the company, and how involved you are in its strategy. I ask for the last two because they change how much weight your answers carry, not because they change the analysis.</p>
+      <p>Your answers to the interview questions. These describe your company’s positioning, your customers, your competitors, and in some cases what is not working. Treat them as you would treat anything you would say in a first meeting with a consultant.</p>
+      <p><strong style="color:var(--accent)">What I collect automatically.</strong> A device identifier and your IP address, used to limit how many diagnostics can be started from one place. Page views through Vercel Web Analytics, which uses no cookies and does not follow you to other sites. Web addresses are stripped of anything identifying before they are recorded.</p>
+      <p><strong style="color:var(--accent)">What I collect about your company.</strong> The diagnostic reads your company’s public website, public information about your competitors, and public third-party material about your company: reviews, coverage, directory listings, conference programs. All of it is material already published to the open internet.</p>
+      <p>Some of that material names other people, such as a reviewer or an executive quoted in an article. Those people did not ask to be part of your diagnostic. I use what they published only to establish how the market describes your company, I do not build profiles of them, and I do not include material about them in anything I deliver to you.</p>
+      <p><strong style="color:var(--accent)">Who processes it.</strong> Running the diagnostic means passing information through services I do not own. Each one sees only what it needs.</p>
+      <table class="proc-table">
+        <thead><tr><th>Service</th><th>What it does</th><th>What it sees</th></tr></thead>
+        <tbody>
+        <tr><td>Anthropic</td><td>Runs the analysis</td><td>Your interview answers and the research material</td></tr>
+        <tr><td>Supabase</td><td>Stores everything</td><td>All of it</td></tr>
+        <tr><td>Vercel</td><td>Hosts the app and counts page views</td><td>Requests, and page views without identifying detail</td></tr>
+        <tr><td>Resend</td><td>Sends the verification and delivery emails</td><td>Your email address</td></tr>
+        <tr><td>Cloudflare</td><td>Turnstile, which checks you are not a bot</td><td>A challenge token, no personal detail</td></tr>
+        <tr><td>Brave</td><td>Web search for market research</td><td>Search queries about your company, not about you</td></tr>
+        <tr><td>Trigger.dev</td><td>Runs the longer research jobs</td><td>Job state, and the material those jobs carry</td></tr>
+        <tr><td>OnceHub</td><td>Scheduling, if you book a call</td><td>Whatever you enter when booking</td></tr>
+        </tbody>
+      </table>
+      <p><strong style="color:var(--accent)">How long I keep it.</strong> Your interview answers and the resulting report for 24 months, because the analysis is only useful if I can refer back to it when we speak. Research material gathered about your company for the same period. Verification tokens are deleted once used or expired. You can ask me to delete any of it at any time.</p>
+      <p><strong style="color:var(--accent)">A human reads it.</strong> At present I read every report before it is delivered. That is deliberate and it is how the method is being calibrated. It also means a real person sees your answers. If that is not something you want, do not start a diagnostic.</p>
+      <p><strong style="color:var(--accent)">Your choices.</strong> Email <a href="mailto:ryanp@ryanphelan.com">ryanp@ryanphelan.com</a> to see, correct, delete, or get a copy of anything the diagnostic holds about you. Deleting your diagnostic deletes the interview answers, the report and the research gathered for it.</p>
 
       <h2>Your rights</h2>
       <p>Depending on where you live, you may have the right to access, correct, delete, or receive a copy of your personal data, to object to or restrict certain processing, and to withdraw consent. EU and UK visitors also have the right to lodge a complaint with your local data protection authority. To exercise any of these, email me at <a href="mailto:ryanp@ryanphelan.com">ryanp@ryanphelan.com</a> and I will respond. To opt out of RB2B specifically, decline the cookie banner, or accept and then change your choice under “Cookie settings.”</p>
