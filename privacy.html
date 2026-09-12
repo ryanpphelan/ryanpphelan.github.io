@@ -80,7 +80,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
     <div class="wrap narrow">
       <p class="eyebrow">Privacy</p>
       <h1>Privacy Policy</h1>
-      <p class="lead">How this site handles your information. Last updated August 31, 2026.</p>
+      <p class="lead">How this site handles your information. Last updated September 12, 2026.</p>
     </div>
   </section>
 
@@ -132,11 +132,12 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
       <p><strong style="color:var(--accent)">What I collect automatically.</strong> A device identifier and your IP address, used to limit how many diagnostics can be started from one place. Page views through Vercel Web Analytics, which uses no cookies and does not follow you to other sites. Web addresses are stripped of anything identifying before they are recorded.</p>
       <p><strong style="color:var(--accent)">What I collect about your company.</strong> The diagnostic reads your company’s public website, public information about your competitors, and public third-party material about your company: reviews, coverage, directory listings, conference programs. All of it is material already published to the open internet.</p>
       <p>Some of that material names other people, such as a reviewer or an executive quoted in an article. Those people did not ask to be part of your diagnostic. I use what they published only to establish how the market describes your company, I do not build profiles of them, and I do not include material about them in anything I deliver to you.</p>
-      <p><strong style="color:var(--accent)">Who processes it.</strong> Running the diagnostic means passing information through services I do not own. Each one sees only what it needs.</p>
+      <p><strong style="color:var(--accent)">Who processes it.</strong> Running the diagnostic means passing information through services I do not own. Each one sees only what it needs. The analysis runs through two AI models rather than one, from Anthropic and from OpenAI, so two independent readings can be compared instead of trusting a single one.</p>
       <table class="proc-table">
         <thead><tr><th>Service</th><th>What it does</th><th>What it sees</th></tr></thead>
         <tbody>
-        <tr><td>Anthropic</td><td>Runs the analysis</td><td>Your interview answers and the research material</td></tr>
+        <tr><td>Anthropic</td><td>Runs part of the analysis</td><td>Your interview answers and the research material</td></tr>
+        <tr><td>OpenAI</td><td>Runs part of the analysis</td><td>Your interview answers and the research material</td></tr>
         <tr><td>Supabase</td><td>Stores everything</td><td>All of it</td></tr>
         <tr><td>Vercel</td><td>Hosts the app and counts page views</td><td>Requests, and page views without identifying detail</td></tr>
         <tr><td>Resend</td><td>Sends the verification and delivery emails</td><td>Your email address</td></tr>
