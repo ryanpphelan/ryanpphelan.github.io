@@ -10,6 +10,7 @@ Ryan has nearly three decades across every side of B2B technology: vendor, clien
 - [Overview](https://ryanphelan.com/): the Clarity Gap and how Ryan closes it
 - [The Approach](https://ryanphelan.com/approach.html): the Clarity Gap, Go-to-Market Alignment, and Go-to-Market Translation
 - [Ways to Work](https://ryanphelan.com/services.html): the Clarity Sprint, Go-to-Market Alignment, and Go-to-Market Translation
+- [The Clarity Gap Diagnostic](https://ryanphelan.com/clarity-gap.html): a guided diagnostic that compares what leadership intends, what the company publishes, what the market says back, and how AI describes the company, then names where the Clarity Gap sits and what the finding rests on; it refuses to reach a conclusion where the evidence runs out
 - [About Ryan Phelan](https://ryanphelan.com/about.html): background across every side of B2B technology
 - [Contact](https://ryanphelan.com/contact.html): start with a conversation, not a proposal
 
