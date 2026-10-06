@@ -1,0 +1,30 @@
+From: Ryan Phelan <ryanp@ryanphelan.com>
+To: 
+Subject: SimCheck feedback: one bug, a few notes
+Date: Tue, 06 Oct 2026 13:40:27 +0000
+X-Unsent: 1
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+
+Marc,
+
+First off, this is a real tool. The drift map, the chunk-level breakdown, the local embedding run, the action list with time estimates. That's a genuine instrument, and I ran it on the site this week.
+
+The challenge I have is mostly one thing: on a bad input it gives you a confident wrong answer, and it doesn't tell you the input was bad.
+
+I ran my homepage and got a 26, "not ready." Two things were off, neither of them the page.
+
+One, the target topic I typed was basically a placeholder ("needs matched"). The score is just similarity to whatever I type, so against a nothing phrase every chunk came back around 0.5 and the tool told me my content doesn't answer the topic. It wasn't the content. It was the target. A short or junk target should throw a flag before it ever shows a number. Better, suggest a few target queries off the page's own headings so I'm not guessing.
+
+Two, it graded my homepage like it should read like a dictionary entry. Add a definition up top, a TL;DR, an FAQ. That's right for an essay. A homepage isn't that. Let me tell it what kind of page it's looking at.
+
+The sharpest one, and I think it's a bug. In your own debug data every chunk has a normalized score and a raw score. The normalized one spreads the whole way from 0 to 1, so your calibration works. But the Weak/Moderate/Strong label reads off the raw cosine, which sits in a tiny 0.44 to 0.54 band, so everything says "Weak" no matter what. Your drift map and your labels are telling two different stories about the same page. I'd base the label on the calibrated score. And while you're in there, "Strong" at 0.72 raw cosine is almost unreachable for that embedding. Real content lives around 0.4 to 0.6, so nearly everything reads Weak. Worth re-checking the thresholds against pages you already know are good and bad.
+
+Two smaller ones. "Not ready" in big type is strong for a number you yourself call relative. Soften it when the target's thin. And don't let it imply the similarity score predicts whether AI cites you. That's a different question, and your LLM tab is the better answer to it.
+
+Last thing, more philosophy than bug. A lot of the fixes it suggests are the mechanical stuff. Stuff the keyword in, front-load the definition, add the box. For people who care how the page reads, that flattens the voice. Frame those as options, not orders.
+
+None of this is a slam. It's a good tool that's one guardrail away from one I'd trust in front of a client. Tell me where I'm wrong on any of it.
+
+Ryan
