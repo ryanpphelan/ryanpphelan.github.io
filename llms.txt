@@ -16,6 +16,7 @@ Ryan has nearly three decades across every side of B2B technology: vendor, clien
 
 ## Writing
 - [Writing](https://ryanphelan.com/writing.html): selected essays and columns, gathered on-site
+- [Don't count your chickens before the checkpoint: 6 AI governance prompts I actually use](https://ryanphelan.com/writing/dont-count-your-chickens-before-the-checkpoint): six AI governance prompts to copy, each written after a real mistake, with how to start with just two
 - [You don't control delivery. You earn it.](https://ryanphelan.com/writing/you-dont-control-delivery-you-earn-it): a ten-million-person email send as the clearest picture of the Clarity Gap; you control your story, not whether the market accepts it
 - [When Alignment Becomes a Blindfold](https://ryanphelan.com/articles/when-alignment-becomes-a-blindfold.html): passing both halves of the clarity test can hide the most dangerous gap; agreement is not the same as being right
 - [The Clarity Gap](https://ryanphelan.com/articles/the-clarity-gap.html): the essay defining the Clarity Gap, its two faces, and what it takes to close it
