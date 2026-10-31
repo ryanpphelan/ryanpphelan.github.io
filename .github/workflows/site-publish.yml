@@ -1,7 +1,8 @@
 name: site-publish
-# Deploys the whole site via GitHub Actions (Pages source = GitHub Actions). Never pushes to
-# the protected branch. On every push to main (site edits or approved blog content) it rebuilds
-# the full site from the repo and renders approved blog articles, then deploys and verifies.
+# Deploys the whole site via GitHub Actions. Never pushes to the protected branch. On every push
+# to main it re-validates every approved post (article + bound card images) before deploying,
+# rebuilds the full site from the repo (including images/social/ static cards) and renders approved
+# blog articles, then deploys and verifies the article is live.
 on:
   push:
     branches: [ main ]
@@ -20,19 +21,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: { fetch-depth: 0 }
-      - run: pip install cryptography
-      - name: validate any approved blog content BEFORE deploy (privileged-deploy gate)
+      - run: pip install cryptography pillow
+      - name: re-validate every approved post BEFORE any deploy (privileged-deploy gate)
         run: |
           set -e
           shopt -s nullglob
-          CHANGED="$(git ls-files content/blog | paste -sd, -)"
-          for md in content/blog/*.md; do
-            slug=$(basename "$md" .md)
-            python3 tools/validator.py --content "$md" \
-              --approval "content/blog/$slug.approval.json" \
-              --pubkey keys/approval-public.pem --changed "$CHANGED"
+          for ap in content/blog/*.approval.json; do
+            python3 tools/validator.py --approval "$ap" --pubkey keys/approval-public.pem
           done
-      - name: assemble full site into _site, then render approved blog articles
+      - name: assemble full site into _site (site + social cards), then render approved articles
         run: |
           set -e
           mkdir -p _site

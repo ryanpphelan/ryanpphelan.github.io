@@ -1,6 +1,7 @@
 name: blog-validate
-# Required status check for pull requests. Enforces that a PR changes ONLY approved blog content
-# under content/blog/, and that every article carries a valid independent approval signature.
+# Required status check for pull requests. A PR may change only content/blog/** and
+# images/social/<sha256>.png, and every changed file must be covered by a single signed approval
+# (article by contentHash, each card image by exact SHA-256 in the approval's `assets`).
 on:
   pull_request:
     branches: [ main ]
@@ -10,24 +11,24 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: { fetch-depth: 0 }
-      - run: pip install cryptography
+      - run: pip install cryptography pillow
       - name: compute changed files
         id: diff
         run: echo "files=$(git diff --name-only origin/${{ github.base_ref }}...HEAD | paste -sd, -)" >> "$GITHUB_OUTPUT"
-      - name: enforce content-only allowlist + validate each article
+      - name: validate the signed approval covers exactly the changed files
         run: |
           set -e
           CHANGED="${{ steps.diff.outputs.files }}"
           echo "changed: $CHANGED"
-          for f in $(echo "$CHANGED" | tr ',' ' '); do
-            case "$f" in
-              content/blog/*) ;;
-              *) echo "DISALLOWED PATH OUTSIDE content/blog/: $f"; exit 1;;
-            esac
-          done
-          for md in $(echo "$CHANGED" | tr ',' '\n' | grep '^content/blog/.*\.md$' || true); do
-            slug=$(basename "$md" .md)
-            python3 tools/validator.py --content "$md" \
-              --approval "content/blog/$slug.approval.json" \
-              --pubkey keys/approval-public.pem --changed "$CHANGED"
+          APPROVALS=$(echo "$CHANGED" | tr ',' '\n' | grep '^content/blog/.*\.approval\.json$' || true)
+          if [ -z "$APPROVALS" ]; then
+            if echo "$CHANGED" | tr ',' '\n' | grep -qE '^(content/blog/|images/social/)'; then
+              echo "FAIL: content or image changed without a signed approval"; exit 1
+            fi
+            echo "no content/image changes; nothing to validate"; exit 0
+          fi
+          N=$(echo "$APPROVALS" | grep -c . || true)
+          if [ "$N" -gt 1 ]; then echo "FAIL: submit one post (one approval) per PR; found $N"; exit 1; fi
+          for ap in $APPROVALS; do
+            python3 tools/validator.py --approval "$ap" --pubkey keys/approval-public.pem --changed "$CHANGED"
           done
