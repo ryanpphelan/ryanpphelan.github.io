@@ -1,0 +1,56 @@
+name: site-publish
+# Deploys the whole site via GitHub Actions (Pages source = GitHub Actions). Never pushes to
+# the protected branch. On every push to main (site edits or approved blog content) it rebuilds
+# the full site from the repo and renders approved blog articles, then deploys and verifies.
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: {}
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency: { group: pages, cancel-in-progress: false }
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - run: pip install cryptography
+      - name: validate any approved blog content BEFORE deploy (privileged-deploy gate)
+        run: |
+          set -e
+          shopt -s nullglob
+          CHANGED="$(git ls-files content/blog | paste -sd, -)"
+          for md in content/blog/*.md; do
+            slug=$(basename "$md" .md)
+            python3 tools/validator.py --content "$md" \
+              --approval "content/blog/$slug.approval.json" \
+              --pubkey keys/approval-public.pem --changed "$CHANGED"
+          done
+      - name: assemble full site into _site, then render approved blog articles
+        run: |
+          set -e
+          mkdir -p _site
+          git ls-files | grep -vE '^(\.github/|tools/|keys/|scripts/|content/)|^(README\.md|\.gitignore)$' \
+            | while IFS= read -r f; do mkdir -p "_site/$(dirname "$f")"; cp "$f" "_site/$f"; done
+          shopt -s nullglob
+          mkdir -p writing _site/writing
+          for md in content/blog/*.md; do python3 tools/render_page.py "$md"; done
+          [ -d writing ] && cp -r writing/. _site/writing/ 2>/dev/null || true
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: _site }
+      - id: deploy
+        uses: actions/deploy-pages@v4
+      - name: verify approved blog articles are live (content hash); skip if none
+        run: |
+          shopt -s nullglob
+          if ls content/blog/*.md >/dev/null 2>&1; then
+            BASE="${{ steps.deploy.outputs.page_url }}" bash scripts/verify_pages.sh
+          else
+            echo "no approved blog content this run; site deploy only"
+          fi
