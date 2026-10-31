@@ -31,10 +31,24 @@ def render_body(md):
         if not ln.strip(): flush(); i+=1; continue
         flush(); e=linkify(esc(smarten(ln))); out.append(f'<p>{e}</p>'); i+=1
     flush(); return '\n'.join(out)
+def parse_front_matter(fm):
+    # Contract (integration scope v2, section K): `key: value` lines, values optionally quoted,
+    # empty written as "". Split on the FIRST colon so a value may itself contain ": " (e.g. a title).
+    meta={}
+    for line in fm.split('\n'):
+        line=line.rstrip()
+        if not line or ':' not in line: continue
+        k,_,v=line.partition(':')
+        k=k.strip(); v=v.strip()
+        if v=='""': v=''
+        elif len(v)>=2 and v[0]=='"' and v[-1]=='"': v=v[1:-1]
+        meta[k]=v
+    return meta
+
 def main():
     src=pathlib.Path(sys.argv[1]).read_text(encoding='utf-8')
     fm,body=src.split('\n---\n',1); fm=fm.split('---\n',1)[1] if fm.startswith('---') else fm
-    meta=json.loads(fm.strip())
+    meta=parse_front_matter(fm.strip())
     slug=meta['slug']; body_html=render_body(body.strip())
     url=f"https://ryanphelan.com/writing/{slug}"   # production canonical shape
     page=f'''<!doctype html>
