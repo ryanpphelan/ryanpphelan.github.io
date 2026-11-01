@@ -29,6 +29,8 @@ jobs:
           for ap in content/blog/*.approval.json; do
             python3 tools/validator.py --approval "$ap" --pubkey keys/approval-public.pem
           done
+      - name: regenerate blog index, sitemap, llms.txt from approved posts
+        run: python3 tools/gen_blog_indexes.py
       - name: assemble full site into _site (site + social cards), then render approved articles
         run: |
           set -e
