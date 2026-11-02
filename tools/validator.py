@@ -100,7 +100,15 @@ def consumed_nonces(root, ref):
     An approval is consumed once its file has ever been added or modified on `ref` (the merge is the
     hand-off to publication). Removing the post later does not un-consume it. Nothing outside git
     history is read or written, so there is no state to tamper with or pay for. `ref`'s history is
-    protected by the ruleset (no force push, no deletion; only the admin path can rewrite it)."""
+    protected by the ruleset (no force push, no deletion; only the admin path can rewrite it).
+    Fails closed (raises) if the history is shallow or the ref does not exist: an incomplete history
+    could hide a consumed approval."""
+    shallow = subprocess.run(['git', '-C', root, 'rev-parse', '--is-shallow-repository'],
+                             capture_output=True, text=True, check=True).stdout.strip()
+    if shallow != 'false':
+        raise RuntimeError('history-incomplete')
+    subprocess.run(['git', '-C', root, 'rev-parse', '--verify', '--quiet', ref + '^{commit}'],
+                   capture_output=True, text=True, check=True)
     out = subprocess.run(['git', '-C', root, 'log', ref, '--format=@%H', '--diff-filter=AMR', '--name-only',
                           '--', 'content/blog/*.approval.json'], capture_output=True, text=True, check=True).stdout
     seen, commit = set(), None
@@ -180,7 +188,8 @@ def main():
         try:
             if stmt['nonce'] in consumed_nonces(root, a.history_ref): errs.append('replay-approval-consumed')
         except Exception as e:
-            errs.append(f'ledger-unreadable:{e.__class__.__name__}')   # fail closed
+            errs.append('ledger-history-incomplete' if 'history-incomplete' in str(e)
+                        else f'ledger-unreadable:{e.__class__.__name__}')   # fail closed
 
     if a.ledger:
         key = f"{stmt.get('id')}|{stmt.get('contentHash') or stmt.get('postTextHash')}|{stmt.get('nonce')}"

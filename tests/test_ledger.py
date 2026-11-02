@@ -167,6 +167,19 @@ class Ledger(unittest.TestCase):
                             ','.join(f), '--root', self.g.root, '--history-ref', 'no-such-branch'], capture_output=True, text=True)
         self.assertNotEqual(r.returncode, 0); self.assertIn('ledger-unreadable', r.stdout)
 
+    def test_shallow_history_fails_closed(self):
+        self.publish_article('a', 'n-a')
+        shallow = tempfile.mkdtemp(prefix='ledger-shallow-')
+        try:
+            subprocess.run(['git', 'clone', '-q', '--depth', '1', 'file://' + self.g.root, shallow], check=True,
+                           capture_output=True)
+            f = ['content/blog/a.approval.json', 'content/blog/a.md']
+            r = subprocess.run([sys.executable, VALIDATOR, '--approval', f[0], '--pubkey', 'keys/pub.pem', '--changed',
+                                ','.join(f), '--root', shallow, '--history-ref', 'origin/main'], capture_output=True, text=True)
+            self.assertNotEqual(r.returncode, 0); self.assertIn('ledger-history-incomplete', r.stdout)
+        finally:
+            shutil.rmtree(shallow, ignore_errors=True)
+
     def test_existing_production_history_shape(self):
         # mirrors main as of 2026-11-02: three articles added then removed, one social approval live
         for slug, n in (('pipeline-test-post', 'test-c91ba7e6b38e'), ('clarity-gap-activation-test', '15c70487'),
