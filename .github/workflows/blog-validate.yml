@@ -8,6 +8,10 @@ name: blog-validate
 # never from the PR, and any PR that touches anything outside the content paths fails. Site code,
 # tools, keys and pages change only through Website Build's admin path, never through a PR from the
 # Marketing App.
+#
+# Single-use ledger (2026-11-02): an approval whose nonce has ever been on the base branch is consumed
+# and cannot be submitted again, even after its post was removed. Unmerged or failed PRs consume
+# nothing.
 on:
   pull_request:
     branches: [ main ]
@@ -44,5 +48,6 @@ jobs:
           N=$(echo "$APPROVALS" | grep -c . || true)
           if [ "$N" -gt 1 ]; then echo "FAIL: submit one post (one approval) per PR; found $N"; exit 1; fi
           for ap in $APPROVALS; do
-            python3 "$TRUSTED/validator.py" --approval "$ap" --pubkey "$TRUSTED/approval-public.pem" --changed "$CHANGED"
+            python3 "$TRUSTED/validator.py" --approval "$ap" --pubkey "$TRUSTED/approval-public.pem" --changed "$CHANGED" \
+              --history-ref "origin/${{ github.base_ref }}"
           done

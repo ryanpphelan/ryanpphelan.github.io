@@ -14,7 +14,7 @@ approval it carries.
 
 Canonical form: keys sorted, no whitespace, UTF-8 (non-ASCII NOT escaped). This is byte-identical to
 the Approval Service's canon() (JavaScript JSON.stringify), which is what is actually signed."""
-import sys, json, re, hashlib, argparse, os
+import sys, json, re, hashlib, argparse, os, subprocess
 from datetime import datetime
 from cryptography.hazmat.primitives.serialization import load_pem_public_key
 from cryptography.exceptions import InvalidSignature
@@ -95,6 +95,28 @@ def check_social_fields(stmt, errs):
     if 'postText' in stmt: errs.append('social-raw-text-not-allowed')
 
 
+def consumed_nonces(root, ref):
+    """Single-use ledger, derived from the protected branch's own history.
+    An approval is consumed once its file has ever been added or modified on `ref` (the merge is the
+    hand-off to publication). Removing the post later does not un-consume it. Nothing outside git
+    history is read or written, so there is no state to tamper with or pay for. `ref`'s history is
+    protected by the ruleset (no force push, no deletion; only the admin path can rewrite it)."""
+    out = subprocess.run(['git', '-C', root, 'log', ref, '--format=@%H', '--diff-filter=AMR', '--name-only',
+                          '--', 'content/blog/*.approval.json'], capture_output=True, text=True, check=True).stdout
+    seen, commit = set(), None
+    for line in out.splitlines():
+        if line.startswith('@'): commit = line[1:]; continue
+        if not line.strip() or not commit: continue
+        blob = subprocess.run(['git', '-C', root, 'show', f'{commit}:{line}'], capture_output=True, text=True)
+        if blob.returncode != 0: continue
+        try:
+            n = json.loads(blob.stdout).get('nonce')
+        except Exception:
+            continue
+        if isinstance(n, str) and n: seen.add(n)
+    return seen
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--approval', required=True)
@@ -102,6 +124,9 @@ def main():
     ap.add_argument('--changed', default='', help='csv of PR-changed files; if set, each must be covered')
     ap.add_argument('--root', default='.')
     ap.add_argument('--ledger', default='')
+    ap.add_argument('--history-ref', default='',
+                    help='protected branch (e.g. origin/main); approvals already on it are consumed (replay check). '
+                         'Used for PR intake only; re-validating what is already on main omits it, so a deploy retry works.')
     a = ap.parse_args(); errs = []; root = a.root
     j = lambda rel: os.path.join(root, rel)
 
@@ -111,6 +136,7 @@ def main():
     try: pub.verify(sig, canonical(stmt))
     except InvalidSignature: errs.append('approval-signature-invalid')
     if stmt.get('author') != 'Ryan Phelan': errs.append('author-not-allowed')
+    if not isinstance(stmt.get('nonce'), str) or not stmt.get('nonce').strip(): errs.append('approval-missing-nonce')
     slug = stmt.get('slug', '')
     covered = {a.approval}
 
@@ -149,6 +175,12 @@ def main():
                 errs.append(f'path-not-allowed:{c}')
             elif c not in covered:
                 errs.append(f'changed-file-not-covered-by-approval:{c}')
+
+    if a.history_ref and stmt.get('nonce'):
+        try:
+            if stmt['nonce'] in consumed_nonces(root, a.history_ref): errs.append('replay-approval-consumed')
+        except Exception as e:
+            errs.append(f'ledger-unreadable:{e.__class__.__name__}')   # fail closed
 
     if a.ledger:
         key = f"{stmt.get('id')}|{stmt.get('contentHash') or stmt.get('postTextHash')}|{stmt.get('nonce')}"
