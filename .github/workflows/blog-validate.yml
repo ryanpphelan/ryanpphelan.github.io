@@ -1,7 +1,13 @@
 name: blog-validate
 # Required status check for pull requests. A PR may change only content/blog/** and
 # images/social/<sha256>.png, and every changed file must be covered by a single signed approval
-# (article by contentHash, each card image by exact SHA-256 in the approval's `assets`).
+# (article by contentHash, each card image by exact SHA-256 in the approval's `assets`; a social
+# approval binds its card images, post-text hash, channel, destination, time and timezone).
+#
+# Hardening (2026-11-02): the validator and the trusted public key are taken from the BASE branch,
+# never from the PR, and any PR that touches anything outside the content paths fails. Site code,
+# tools, keys and pages change only through Website Build's admin path, never through a PR from the
+# Marketing App.
 on:
   pull_request:
     branches: [ main ]
@@ -15,20 +21,28 @@ jobs:
       - name: compute changed files
         id: diff
         run: echo "files=$(git diff --name-only origin/${{ github.base_ref }}...HEAD | paste -sd, -)" >> "$GITHUB_OUTPUT"
+      - name: load the validator and trusted key from the base branch (never from the PR)
+        run: |
+          set -e
+          mkdir -p "$RUNNER_TEMP/trusted"
+          git show "origin/${{ github.base_ref }}:tools/validator.py"       > "$RUNNER_TEMP/trusted/validator.py"
+          git show "origin/${{ github.base_ref }}:keys/approval-public.pem" > "$RUNNER_TEMP/trusted/approval-public.pem"
       - name: validate the signed approval covers exactly the changed files
+        env:
+          TRUSTED: ${{ runner.temp }}/trusted
         run: |
           set -e
           CHANGED="${{ steps.diff.outputs.files }}"
           echo "changed: $CHANGED"
-          APPROVALS=$(echo "$CHANGED" | tr ',' '\n' | grep '^content/blog/.*\.approval\.json$' || true)
-          if [ -z "$APPROVALS" ]; then
-            if echo "$CHANGED" | tr ',' '\n' | grep -qE '^(content/blog/|images/social/)'; then
-              echo "FAIL: content or image changed without a signed approval"; exit 1
-            fi
-            echo "no content/image changes; nothing to validate"; exit 0
+          if [ -z "$CHANGED" ]; then echo "no changes; nothing to validate"; exit 0; fi
+          BAD=$(echo "$CHANGED" | tr ',' '\n' | grep -vE '^(content/blog/[a-z0-9-]+\.(md|approval\.json)|images/social/[0-9a-f]{64}\.png)$' || true)
+          if [ -n "$BAD" ]; then
+            echo "FAIL: this check admits content only; outside content paths: $(echo $BAD | tr ' ' ',')"; exit 1
           fi
+          APPROVALS=$(echo "$CHANGED" | tr ',' '\n' | grep '^content/blog/.*\.approval\.json$' || true)
+          if [ -z "$APPROVALS" ]; then echo "FAIL: content or image changed without a signed approval"; exit 1; fi
           N=$(echo "$APPROVALS" | grep -c . || true)
           if [ "$N" -gt 1 ]; then echo "FAIL: submit one post (one approval) per PR; found $N"; exit 1; fi
           for ap in $APPROVALS; do
-            python3 tools/validator.py --approval "$ap" --pubkey keys/approval-public.pem --changed "$CHANGED"
+            python3 "$TRUSTED/validator.py" --approval "$ap" --pubkey "$TRUSTED/approval-public.pem" --changed "$CHANGED"
           done
