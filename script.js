@@ -59,8 +59,14 @@
   function gtagSafe(){ if(typeof gtag==='function'){ gtag.apply(null, arguments); } else { (window.dataLayer=window.dataLayer||[]).push(arguments); } }
 
   function apply(choice){
+    var prev = saved();
     var state = choice === 'accepted' ? GRANTED : DENIED;
     gtagSafe('consent','update',state);
+    // GA4 tags wait for consent (basic mode) and GTM does not re-fire them on a consent update,
+    // so tell GTM once when analytics is newly granted; it then counts the page the visitor is on.
+    if(choice === 'accepted' && !(prev && prev.choice === 'accepted')){
+      (window.dataLayer = window.dataLayer || []).push({event:'sg_consent_granted'});
+    }
     try{ localStorage.setItem(KEY, JSON.stringify({choice:choice, state:state})); }catch(e){}
     writeCookie(choice);
   }
