@@ -74,7 +74,7 @@
     banner.setAttribute('aria-label','Cookie consent');
     banner.innerHTML =
       '<div class="cc-inner">' +
-        '<p class="cc-text">I use Google Analytics to see how visitors use this site. Nothing loads until you choose, and you can change your mind anytime under “Cookie settings” in the footer.</p>' +
+        '<p class="cc-text">I use Google Analytics to see how visitors use this site. No analytics run until you choose, and you can change your mind anytime under “Cookie settings” in the footer.</p>' +
         '<div class="cc-actions">' +
           '<button class="cc-btn cc-decline" type="button">Decline</button>' +
           '<button class="cc-btn cc-accept" type="button">Accept</button>' +
