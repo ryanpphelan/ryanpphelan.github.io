@@ -45,13 +45,24 @@
   var GRANTED = {ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted',analytics_storage:'granted',functionality_storage:'granted',personalization_storage:'granted'};
   var DENIED  = {ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',functionality_storage:'denied',personalization_storage:'denied'};
 
-  function saved(){ try{ return JSON.parse(localStorage.getItem(KEY)); }catch(e){ return null; } }
+  // The choice is shared with clarity.ryanphelan.com through a first-party cookie on .ryanphelan.com.
+  // Cookie first, localStorage as the fallback for choices made before the cookie existed.
+  function readCookie(){ var m = document.cookie.match(/(?:^|;\s*)sg_consent=(accepted|declined)(?:;|$)/); return m ? m[1] : null; }
+  function writeCookie(choice){
+    var d = /(^|\.)ryanphelan\.com$/.test(location.hostname) ? '; Domain=.ryanphelan.com' : '';
+    document.cookie = KEY + '=' + choice + '; Max-Age=31536000; Path=/; SameSite=Lax' + (location.protocol === 'https:' ? '; Secure' : '') + d;
+  }
+  function saved(){
+    var c = readCookie(); if(c){ return {choice:c, state: c === 'accepted' ? GRANTED : DENIED}; }
+    try{ var l = JSON.parse(localStorage.getItem(KEY)); if(l && l.choice){ writeCookie(l.choice); } return l; }catch(e){ return null; }
+  }
   function gtagSafe(){ if(typeof gtag==='function'){ gtag.apply(null, arguments); } else { (window.dataLayer=window.dataLayer||[]).push(arguments); } }
 
   function apply(choice){
     var state = choice === 'accepted' ? GRANTED : DENIED;
     gtagSafe('consent','update',state);
     try{ localStorage.setItem(KEY, JSON.stringify({choice:choice, state:state})); }catch(e){}
+    writeCookie(choice);
   }
 
   var banner;

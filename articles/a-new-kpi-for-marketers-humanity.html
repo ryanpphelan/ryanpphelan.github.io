@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Consent Mode v2 default (denied) + GA4. Consent stays denied until the banner is answered. -->
+<!-- Consent Mode v2 default (denied). GA4 loads through Google Tag Manager below. Consent stays denied until the banner is answered (choice shared with clarity.ryanphelan.com via the sg_consent cookie). -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -12,10 +12,8 @@
     analytics_storage:'denied',functionality_storage:'denied',personalization_storage:'denied',
     security_storage:'granted',wait_for_update:500
   });
-  try{var _sg=JSON.parse(localStorage.getItem('sg_consent'));if(_sg&&_sg.state){gtag('consent','update',_sg.state);}}catch(e){}
+  try{var _sg=(function(){var c=document.cookie.match(/(?:^|;\s*)sg_consent=(accepted|declined)(?:;|$)/);if(c){var v=c[1]==='accepted'?'granted':'denied';return {state:{ad_storage:v,ad_user_data:v,ad_personalization:v,analytics_storage:v,functionality_storage:v,personalization_storage:v}};}return JSON.parse(localStorage.getItem('sg_consent'));})();if(_sg&&_sg.state){gtag('consent','update',_sg.state);}}catch(e){}
 </script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6TS21KV3RW"></script>
-<script>gtag('js', new Date());gtag('config', 'G-6TS21KV3RW');</script>
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
