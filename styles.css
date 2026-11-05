@@ -256,10 +256,15 @@ figure.diagram figcaption{margin-top:14px;color:var(--muted);font-size:.9rem;tex
 .cc-accept:hover{background:var(--accent-deep);border-color:var(--accent-deep)}
 .cc-decline{background:transparent;color:var(--accent)}
 .cc-decline:hover{background:var(--panel)}
+.cc-short{display:none}
 @media(max-width:640px){
-  .cc-inner{flex-direction:column;align-items:stretch;gap:14px;padding:16px 20px}
-  .cc-actions{width:100%}
-  .cc-btn{flex:1}
+  /* compact on phones: one short line, two small buttons beside it */
+  .cc-inner{flex-direction:row;flex-wrap:nowrap;align-items:center;gap:12px;padding:10px 16px}
+  .cc-long{display:none}
+  .cc-short{display:inline}
+  .cc-text{font-size:.82rem;line-height:1.35}
+  .cc-actions{gap:6px}
+  .cc-btn{padding:7px 12px;font-size:.82rem}
 }
 
 /* ---------- service pathway ---------- */

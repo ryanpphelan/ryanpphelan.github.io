@@ -80,7 +80,7 @@
     banner.setAttribute('aria-label','Cookie consent');
     banner.innerHTML =
       '<div class="cc-inner">' +
-        '<p class="cc-text">I use Google Analytics to see how visitors use this site. No analytics run until you choose, and you can change your mind anytime under “Cookie settings” in the footer.</p>' +
+        '<p class="cc-text"><span class="cc-long">I use Google Analytics to see how visitors use this site. No analytics run until you choose, and you can change your mind anytime under “Cookie settings” in the footer.</span><span class="cc-short">I use Google Analytics. No analytics run until you choose.</span></p>' +
         '<div class="cc-actions">' +
           '<button class="cc-btn cc-decline" type="button">Decline</button>' +
           '<button class="cc-btn cc-accept" type="button">Accept</button>' +
@@ -90,8 +90,11 @@
     banner.querySelector('.cc-accept').addEventListener('click', function(){ apply('accepted'); hide(); });
     banner.querySelector('.cc-decline').addEventListener('click', function(){ apply('declined'); hide(); });
   }
-  function show(){ build(); requestAnimationFrame(function(){ banner.classList.add('show'); }); }
-  function hide(){ if(banner){ banner.classList.remove('show'); } }
+  // While the banner is open, pad the page bottom by its height so it never covers content
+  // (on a phone a form's submit button could otherwise sit underneath it).
+  function reserve(on){ document.body.style.paddingBottom = on && banner ? banner.offsetHeight + 'px' : ''; }
+  function show(){ build(); requestAnimationFrame(function(){ banner.classList.add('show'); reserve(true); }); }
+  function hide(){ if(banner){ banner.classList.remove('show'); } reserve(false); }
 
   // "Cookie settings" reopen link in the footer
   function wireReopen(){
