@@ -45,10 +45,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .aa-hero{position:relative;padding:72px 0 56px;border-bottom:1px solid var(--line)}
 .aa-hero h1{font-size:clamp(2.1rem,6.2vw,3.6rem);line-height:1.12;max-width:20ch;margin:0 0 18px}
 .aa-hero .lead{max-width:640px}
-.aa-hero.has-photo{background:var(--ink) center/cover no-repeat;color:#fff;border-bottom:0}
+.aa-hero.has-photo{background:var(--ink) url(images/ai-audit-hero.jpg) center/cover no-repeat;color:#fff;border-bottom:0}
 .aa-hero.has-photo::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(25,24,23,.55),rgba(25,24,23,.78))}
 .aa-hero.has-photo .wrap{position:relative}
 .aa-hero.has-photo .eyebrow,.aa-hero.has-photo .lead,.aa-hero.has-photo h1{color:#fff}
+.aa-hero.has-photo .btn:not(.btn-ghost){background:var(--accent);border-color:var(--accent);color:#fff}
+.aa-hero.has-photo .btn:not(.btn-ghost):hover{background:#fff;border-color:#fff;color:var(--accent)}
 .aa-hero.has-photo .btn-ghost{color:#fff;border-color:#fff}
 .aa-hero.has-photo .btn-ghost:hover{background:#fff;color:var(--ink)}
 .aa-credit{position:absolute;right:16px;bottom:8px;font-size:.7rem;color:rgba(255,255,255,.75);margin:0}
@@ -74,6 +76,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .aa-small{font-size:.85rem;color:var(--ink-soft)}
 .aa-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
 @media(max-width:640px){
+  .aa-hero.has-photo{background-image:url(images/ai-audit-hero-900.jpg)}
   .aa-hero{padding:48px 0 44px}
   .aa-sec{padding:44px 0}
   .aa-cta .btn{flex:1 1 100%;text-align:center}
@@ -101,7 +104,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
   </div>
 </header>
 <main>
-  <section class="aa-hero" id="top">
+  <section class="aa-hero has-photo" id="top">
     <div class="wrap narrow">
       <p class="eyebrow">From Ryan Phelan&rsquo;s talk &ldquo;Using AI Is Easy. Governing It Is Hard.&rdquo;</p>
       <h1>You can delegate the work. You cannot delegate the accountability.</h1>
@@ -111,7 +114,7 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
         <a class="btn btn-ghost btn-lg" href="mailto:?subject=Worth%2015%20minutes%20before%20the%202027%20plan&amp;body=I%20came%20across%20something%20I%20think%20is%20worth%2015%20minutes%20of%20your%20time.%0D%0A%0D%0AIt%27s%20a%20short%20workbook%20on%20keeping%20AI%20accountable%3A%20what%20it%20can%20see%2C%20what%20it%20can%20claim%2C%20what%20it%20decides%20on%20its%20own%2C%20and%20whose%20name%20is%20on%20the%20result.%0D%0A%0D%0AIt%20also%20makes%20a%20point%20I%20keep%20thinking%20about%3A%20AI%20scales%20whichever%20version%20of%20our%20story%20it%20was%20fed.%20If%20our%20leadership%20team%20tells%20different%20versions%2C%20AI%20amplifies%20all%20of%20them.%20There%27s%20a%20free%2015-minute%20diagnostic%20for%20executive%20teams%20that%20checks%20whether%20our%20leaders%2C%20our%20website%20and%20the%20market%20are%20telling%20the%20same%20story.%0D%0A%0D%0Ahttps%3A%2F%2Fryanphelan.com%2Fai-audit%3Futm_source%3Dvoices%26utm_medium%3Dforward%0D%0A%0D%0AWorth%20a%20look%3F" data-ga="forward_email_click" data-ga-place="hero">Send it to your CEO</a>
       </div>
     </div>
-    <!--PHOTO_CREDIT-->
+    <p class="aa-credit">Photo: Marc Wieland, Unsplash.</p>
   </section>
 
   <section class="aa-sec" id="audit">
