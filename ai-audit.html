@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Consent Mode v2 default (denied). GA4 loads through Google Tag Manager below. Consent stays denied until the banner is answered (choice shared with clarity.ryanphelan.com via the sg_consent cookie). -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent','default',{
+    ad_storage:'denied',
+    ad_user_data:'denied',
+    ad_personalization:'denied',
+    analytics_storage:'denied',
+    functionality_storage:'denied',
+    personalization_storage:'denied',
+    security_storage:'granted',
+    wait_for_update:500
+  });
+  try{
+    var _sg=(function(){var c=document.cookie.match(/(?:^|;\s*)sg_consent=(accepted|declined)(?:;|$)/);if(c){var v=c[1]==='accepted'?'granted':'denied';return {state:{ad_storage:v,ad_user_data:v,ad_personalization:v,analytics_storage:v,functionality_storage:v,personalization_storage:v}};}return JSON.parse(localStorage.getItem('sg_consent'));})();
+    if(_sg&&_sg.state){gtag('consent','update',_sg.state);}
+  }catch(e){}
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T6S4WWPX');</script>
+<!-- End Google Tag Manager -->
+<title>You can delegate the work. You cannot delegate the accountability. Ryan Phelan</title>
+<meta name="description" content="A free workbook for leaders who want AI doing real work without losing track of who answers for it. The Monday Morning Audit, plus the full workbook. No sign-up.">
+<link rel="canonical" href="https://ryanphelan.com/ai-audit">
+<meta property="og:type" content="website">
+<meta property="og:title" content="You can delegate the work. You cannot delegate the accountability.">
+<meta property="og:description" content="A free workbook for leaders who want AI doing real work without losing track of who answers for it. No sign-up.">
+<meta property="og:url" content="https://ryanphelan.com/ai-audit">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+/* AI Accountability landing page (ai-audit): page-scoped */
+.aa-hero{position:relative;padding:72px 0 56px;border-bottom:1px solid var(--line)}
+.aa-hero h1{font-size:clamp(2.1rem,6.2vw,3.6rem);line-height:1.12;max-width:20ch;margin:0 0 18px}
+.aa-hero .lead{max-width:640px}
+.aa-hero.has-photo{background:var(--ink) center/cover no-repeat;color:#fff;border-bottom:0}
+.aa-hero.has-photo::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(25,24,23,.55),rgba(25,24,23,.78))}
+.aa-hero.has-photo .wrap{position:relative}
+.aa-hero.has-photo .eyebrow,.aa-hero.has-photo .lead,.aa-hero.has-photo h1{color:#fff}
+.aa-hero.has-photo .btn-ghost{color:#fff;border-color:#fff}
+.aa-hero.has-photo .btn-ghost:hover{background:#fff;color:var(--ink)}
+.aa-credit{position:absolute;right:16px;bottom:8px;font-size:.7rem;color:rgba(255,255,255,.75);margin:0}
+.aa-sec{padding:56px 0;border-bottom:1px solid var(--line)}
+.aa-sec h2{font-size:clamp(1.6rem,4.4vw,2.3rem);line-height:1.2;margin:0 0 14px}
+.aa-sec .lead{margin-bottom:24px}
+.aa-list{list-style:none;padding:0;margin:0}
+.aq{border-left:3px solid var(--accent);padding:2px 0 2px 18px;margin:0 0 24px}
+.aq-n{display:block;font-size:.72rem;font-weight:600;letter-spacing:.14em;color:var(--accent);margin-bottom:2px}
+.aq h3{font-family:var(--serif);font-weight:500;font-size:1.22rem;line-height:1.3;margin:0 0 6px}
+.aq p{margin:0 0 4px;font-size:1rem;line-height:1.55}
+.aa-strong{font-family:var(--serif);font-size:1.2rem;line-height:1.5;margin:26px 0 0}
+.aa-bullets{margin:0 0 26px;padding-left:1.2em}
+.aa-bullets li{margin:0 0 8px}
+.aa-num{margin:0 0 18px;padding-left:1.4em}
+.aa-num li{margin:0 0 10px}
+.aa-diag{background:#fff;border:1px solid var(--line);border-radius:6px;padding:28px 24px;margin-top:30px}
+.aa-diag h3{font-family:var(--serif);font-weight:500;font-size:1.4rem;margin:0 0 10px}
+.aa-diag p{margin:0 0 12px}
+.aa-diag .aa-check{font-family:var(--serif);font-style:italic;color:var(--accent)}
+.aa-close{padding:48px 0 64px}
+.aa-close p{margin:0 0 8px}
+.aa-small{font-size:.85rem;color:var(--ink-soft)}
+.aa-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+@media(max-width:640px){
+  .aa-hero{padding:48px 0 44px}
+  .aa-sec{padding:44px 0}
+  .aa-cta .btn{flex:1 1 100%;text-align:center}
+}
+@media print{.site-header,.site-footer,.cc-banner,.cc-reopen,.aa-cta{display:none!important}}
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T6S4WWPX"
+height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<header class="site-header">
+  <div class="wrap nav">
+    <a href="index.html" class="brand">Ryan Phelan</a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="approach.html">The Approach</a></li>
+      <li><a href="services.html">Ways to Work</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="writing.html">Writing</a></li>
+      <li><a href="clarity-gap.html">Diagnostic</a></li>
+      <li><a href="contact.html" class="btn nav-cta">Schedule a Conversation</a></li>
+    </ul>
+  </div>
+</header>
+<main>
+  <section class="aa-hero" id="top">
+    <div class="wrap narrow">
+      <p class="eyebrow">From Ryan Phelan&rsquo;s talk &ldquo;Using AI Is Easy. Governing It Is Hard.&rdquo;</p>
+      <h1>You can delegate the work. You cannot delegate the accountability.</h1>
+      <p class="lead">A free workbook for leaders who want AI doing real work without losing track of who answers for it. No sign-up.</p>
+      <div class="aa-cta">
+        <a class="btn btn-lg" href="downloads/ai-accountability-workbook.pdf" download data-ga="workbook_download" data-ga-place="hero">Get the workbook</a>
+        <a class="btn btn-ghost btn-lg" href="mailto:?subject=Worth%2015%20minutes%20before%20the%202027%20plan&amp;body=I%20came%20across%20something%20I%20think%20is%20worth%2015%20minutes%20of%20your%20time.%0D%0A%0D%0AIt%27s%20a%20short%20workbook%20on%20keeping%20AI%20accountable%3A%20what%20it%20can%20see%2C%20what%20it%20can%20claim%2C%20what%20it%20decides%20on%20its%20own%2C%20and%20whose%20name%20is%20on%20the%20result.%0D%0A%0D%0AIt%20also%20makes%20a%20point%20I%20keep%20thinking%20about%3A%20AI%20scales%20whichever%20version%20of%20our%20story%20it%20was%20fed.%20If%20our%20leadership%20team%20tells%20different%20versions%2C%20AI%20amplifies%20all%20of%20them.%20There%27s%20a%20free%2015-minute%20diagnostic%20for%20executive%20teams%20that%20checks%20whether%20our%20leaders%2C%20our%20website%20and%20the%20market%20are%20telling%20the%20same%20story.%0D%0A%0D%0Ahttps%3A%2F%2Fryanphelan.com%2Fai-audit%3Futm_source%3Dvoices%26utm_medium%3Dforward%0D%0A%0D%0AWorth%20a%20look%3F" data-ga="forward_email_click" data-ga-place="hero">Send it to your CEO</a>
+      </div>
+    </div>
+    <!--PHOTO_CREDIT-->
+  </section>
+
+  <section class="aa-sec" id="audit">
+    <div class="wrap narrow">
+      <h2>The Monday Morning Audit</h2>
+      <p class="lead">Pick one AI use on your team. Not all of them. One. Answer these five questions. It takes about fifteen minutes.</p>
+      <ol class="aa-list">
+        <li class="aq"><span class="aq-n">1. ACCESS</span>
+          <h3>What can it access?</h3>
+          <p><b>Good answer:</b> A written list of what it can read or change, read-only wherever that is enough.</p>
+          <p><b>Warning sign:</b> &ldquo;Whatever the vendor set up.&rdquo;</p>
+        </li>
+        <li class="aq"><span class="aq-n">2. CLAIM</span>
+          <h3>What is it allowed to claim, and on what evidence?</h3>
+          <p><b>Good answer:</b> It says where each fact came from, and what it cannot source is labeled unknown.</p>
+          <p><b>Warning sign:</b> Numbers nobody can trace.</p>
+        </li>
+        <li class="aq"><span class="aq-n">3. DECIDE</span>
+          <h3>What does it decide alone?</h3>
+          <p><b>Good answer:</b> A short list, every item reversible.</p>
+          <p><b>Warning sign:</b> Nobody can list them.</p>
+        </li>
+        <li class="aq"><span class="aq-n">4. APPROVE</span>
+          <h3>Who approves its work?</h3>
+          <p><b>Good answer:</b> A named person reviews the full output before it goes out, with risks made visible.</p>
+          <p><b>Warning sign:</b> Approval on a summary, or &ldquo;the tool handles that.&rdquo;</p>
+        </li>
+        <li class="aq"><span class="aq-n">5. OWN</span>
+          <h3>Whose name is on the outcome?</h3>
+          <p><b>Good answer:</b> One name.</p>
+          <p><b>Warning sign:</b> A committee, a vendor, or silence.</p>
+        </li>
+      </ol>
+      <p class="aa-strong">If question five does not have one name, that is your governance gap. You found it before it found you.</p>
+    </div>
+  </section>
+
+  <section class="aa-sec" id="workbook">
+    <div class="wrap narrow">
+      <h2>The full workbook goes further.</h2>
+      <ul class="aa-bullets">
+          <li>The audit as a fill-in worksheet</li>
+          <li>An access inventory for every AI tool your team uses</li>
+          <li>A decision-rights matrix: what AI decides, what a reviewer rules on, what only you decide</li>
+          <li>Five evidence rules you can adopt tomorrow</li>
+          <li>A real incident record: the post I approved with a placeholder still in it, and what changed</li>
+          <li>Ten questions to ask any AI vendor</li>
+          <li>A starter brief for learning AI on a low-stakes project</li>
+      </ul>
+      <div class="aa-cta"><a class="btn btn-lg" href="downloads/ai-accountability-workbook.pdf" download data-ga="workbook_download" data-ga-place="workbook">Get the workbook (PDF, no sign-up)</a></div>
+    </div>
+  </section>
+
+  <section class="aa-sec" id="clarity-gap">
+    <div class="wrap narrow">
+      <h2>Before you govern the AI, check the story it is amplifying.</h2>
+      <p>AI scales whichever version of your story it was fed. If your leadership team tells five different versions of why customers choose you, AI will publish all five, faster and more confidently than any person could. That disconnect, between what leadership believes, what your public material says and what the market hears, is the Clarity Gap.</p>
+      <p><b>Three questions for your leadership team:</b></p>
+      <ol class="aa-num">
+        <li>Ask each leader separately: in one sentence, why does a customer choose us over the alternative?</li>
+        <li>When we lose a deal, who do we lose it to, and why, besides price?</li>
+        <li>Does our website say what our leaders just said?</li>
+      </ol>
+      <p class="aa-strong">If the answers do not match, you have found the gap.</p>
+      <div class="aa-diag">
+        <h3>The Clarity Gap Diagnostic</h3>
+        <p>About 15 minutes, for founders, CEOs and executive-team members. It measures your answers against your public material and the market, using a defined methodology. It&rsquo;s free, and in beta.</p>
+        <p class="aa-check">The AI finds the pattern. I check it before you see it.</p>
+        <div class="aa-cta"><a class="btn btn-lg" href="https://ryanphelan.com/clarity-gap.html" data-ga="diagnostic_click" data-ga-place="bridge">See how the Diagnostic works</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="aa-sec" id="forward">
+    <div class="wrap narrow">
+      <h2>Not your call to make?</h2>
+      <p>Send this to your CEO, CMO or head of marketing. One click opens an email in your own mail program, ready to edit and send.</p>
+      <div class="aa-cta"><a class="btn btn-lg" href="mailto:?subject=Worth%2015%20minutes%20before%20the%202027%20plan&amp;body=I%20came%20across%20something%20I%20think%20is%20worth%2015%20minutes%20of%20your%20time.%0D%0A%0D%0AIt%27s%20a%20short%20workbook%20on%20keeping%20AI%20accountable%3A%20what%20it%20can%20see%2C%20what%20it%20can%20claim%2C%20what%20it%20decides%20on%20its%20own%2C%20and%20whose%20name%20is%20on%20the%20result.%0D%0A%0D%0AIt%20also%20makes%20a%20point%20I%20keep%20thinking%20about%3A%20AI%20scales%20whichever%20version%20of%20our%20story%20it%20was%20fed.%20If%20our%20leadership%20team%20tells%20different%20versions%2C%20AI%20amplifies%20all%20of%20them.%20There%27s%20a%20free%2015-minute%20diagnostic%20for%20executive%20teams%20that%20checks%20whether%20our%20leaders%2C%20our%20website%20and%20the%20market%20are%20telling%20the%20same%20story.%0D%0A%0D%0Ahttps%3A%2F%2Fryanphelan.com%2Fai-audit%3Futm_source%3Dvoices%26utm_medium%3Dforward%0D%0A%0D%0AWorth%20a%20look%3F" data-ga="forward_email_click" data-ga-place="forward">Email it to a leader</a></div>
+    </div>
+  </section>
+
+  <section class="aa-close">
+    <div class="wrap narrow">
+      <p>Questions, or want to talk it through? <a href="https://ryanphelan.com/chat">Book time</a></p>
+      <p class="aa-small">Ryan Phelan, ryanphelan.com</p>
+    </div>
+  </section>
+</main>
+<script>
+/* AI audit page: GA4 events via GTM. Consent is enforced in GTM (tags require analytics_storage). */
+document.addEventListener('click',function(e){
+  var a=e.target.closest&&e.target.closest('a[data-ga]'); if(!a) return;
+  (window.dataLayer=window.dataLayer||[]).push({event:a.getAttribute('data-ga'), link_placement:a.getAttribute('data-ga-place')||''});
+});
+</script>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <img class="fcircle" src="images/headshot.jpg" alt="Ryan Phelan" onerror="this.style.display='none'">
+      <div class="fbrand">Ryan Phelan</div>
+      <div style="color:#8A857D;font-size:.9rem;margin-top:6px">Go-to-Market Alignment &amp; Translation for company leaders.</div>
+    </div>
+    <div class="flinks">
+      <a href="approach.html">The Approach</a>
+      <a href="services.html">Ways to Work</a>
+      <a href="about.html">About</a>
+      <a href="writing.html">Writing</a>
+      <a href="clarity-gap.html">Clarity Gap Diagnostic</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="fnote">© 2026 The Strongbow Group LLC &nbsp;·&nbsp; ryanphelan.com &nbsp;·&nbsp; <a href="mailto:ryanp@ryanphelan.com">ryanp@ryanphelan.com</a> &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy</a></div>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
